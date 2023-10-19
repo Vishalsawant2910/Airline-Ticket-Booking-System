@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Poppins&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+
+:root {
+	/* Color scheme */
+	--text: #fff;
+	--text-hover: #ff0;
+	--background-shade: inset 0 1.5em 0.33em -0.3em #aa85;
+	--background: #222c;
+	--background-gap: #0000;
+	--pad: 6px #aaac solid;
+	--pad-bottom: 6px #ff0c solid;
+	--pad-hover: #ff0c;
+	--gap: 1px solid #fff;
+	--gap-size: 1px;
+	--caret: #aaa;
+	--caret-hover: #ff0;
+}
+
+body {
+	
+	background: url('/Airlineticket/resources/images/pexel8.jpg') top right no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	 height: 100%;
+}
+
+/*.home-content-wrapper{
+background-image: url('/Airlineticket/resources/images/pexel1.jpg');	
+background-size: cover; 
+height: 100%;
+}*/
+
+/* Navbar */
+nav {
+	
+	display: block;
+	text-align: center;
+	font-family: "Raleway", sans-serif;
+	font-size: 1.0rem;
+	& ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
+
+.navigation-menu {
+	vertical-align: top;
+	display: inline-block;
+	background: var(--background-gap);
+	box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+	border-radius: 10px;
+	& a {
+		display: block;
+		background: var(--background);
+		color: var(--text);
+		text-decoration: none;
+		padding: 0.8em 1.8em;
+		text-transform: uppercase;
+		font-size: 80%;
+		letter-spacing: 2px;
+		text-shadow: 0 -1px 0 #000;
+		position: relative;
+	}
+	& li {
+		position: relative;
+	}
+}
+
+.navigation-menu > li {
+	float: left;
+	border-bottom: var(--pad);
+	margin-right: 1px;
+	& > a {
+		margin-bottom: 1px;
+		box-shadow: var(--background-shade);
+	}
+}
+
+/* NavMenu */
+.navigation-menu > li:hover, .navigation-menu > li:hover > a {
+	border-bottom-color: var(--pad-hover);
+	transition: all 1s ease-out;
+}
+
+.navigation-menu li:hover > a {
+	color: var(--text-hover);
+	transition: all 1s ease-out;
+	animation: menuPop 0.2s linear;
+}
+
+.navigation-menu > li:first-child {
+	border-radius: 4px 0 0 4px;
+	& > a {
+		border-radius: 4px 0 0 0;
+	}
+}
+
+.navigation-menu > li:last-child {
+	border-radius: 0 0 4px 0;
+	margin-right: 0;
+	& > a {
+		border-radius: 0 4px 0 0;
+	}
+}
+
+.navigation-menu li li a {
+	margin-top: var(--gap-size);
+}
+
+.navigation-menu li a:first-child:nth-last-child(2):before {
+	content: "";
+	position: absolute;
+	height: 0;
+	width: 0;
+	border: 5px solid transparent;
+	top: 50%;
+	right: 5px;
+	transition: all 0.25s ease-out;
+}
+
+/* NavSubmenu */
+.navigation-menu ul {
+	position: absolute;
+	white-space: nowrap;
+	border-bottom: var(--pad-bottom);
+	z-index: 1;
+	left: -99999em;
+	transition: all 0.25s ease-out;
+}
+.navigation-menu > li:hover > ul {
+	left: auto;
+	padding-top: 5px;
+	min-width: 100%;
+}
+.navigation-menu > li li ul {
+	/* border-left: var(--gap); */
+	margin-left: var(--gap-size);
+	transition: all 0.25s ease-out;
+}
+.navigation-menu > li li:hover > ul {
+	/* margin-left: var(--gap-size) */
+	left: 100%;
+	top: -1px;
+}
+
+/* NavCaret */
+.navigation-menu > li > a:first-child:nth-last-child(2):before {
+	border-top-color: var(--caret);
+}
+.navigation-menu > li:hover > a:first-child:nth-last-child(2):before {
+	border: 5px solid transparent;
+	margin-top: -5px;
+	border-bottom-color: var(--caret-hover);
+}
+.navigation-menu li li > a:first-child:nth-last-child(2):before {
+	border-left-color: var(--caret);
+	margin-top: -5px;
+}
+.navigation-menu li li:hover > a:first-child:nth-last-child(2):before {
+	border: 5px solid transparent;
+	right: 10px;
+	border-right-color: var(--caret-hover);
+}
+
+@keyframes menuPop {
+	0% {
+		transform: translateY(3px) rotateY(30deg);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translateY(0px) rotateY(0deg);
+		opacity: 1;
+	}
+}
+
+@keyframes shake { 
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-0.5deg); }
+  100% { transform: rotate(0deg); }
+}
